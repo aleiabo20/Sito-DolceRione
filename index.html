@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dolcerione · Pasticceria artigianale</title>
+  <meta name="description" content="Dolcerione, pasticceria artigianale di quartiere: torte, mignon, lievitati e dolci su ordinazione preparati ogni giorno con ingredienti genuini.">
+  <meta name="theme-color" content="#7a2e3a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#top" class="logo" aria-label="Dolcerione, torna all'inizio">
+        <img src="assets/favicon.svg" alt="" width="36" height="36">
+        <span>Dolce<em>rione</em></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="nav">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#prodotti">I nostri dolci</a>
+        <a href="#ordinazioni">Su ordinazione</a>
+        <a href="#recensioni">Dicono di noi</a>
+        <a href="#dove-siamo">Dove siamo</a>
+        <a href="#contatti" class="btn btn-small">Contattaci</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Pasticceria artigianale di quartiere</p>
+          <h1>La dolcezza<br>del tuo <em>rione</em>,<br>ogni mattina.</h1>
+          <p class="lead">Torte, pasticcini, cornetti caldi e dolci della tradizione, preparati ogni giorno nel nostro laboratorio con burro vero, uova fresche e tanta pazienza.</p>
+          <div class="hero-actions">
+            <a href="#prodotti" class="btn">Scopri i dolci</a>
+            <a href="#ordinazioni" class="btn btn-ghost">Ordina una torta</a>
+          </div>
+          <p class="open-now" id="open-status" aria-live="polite"></p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 400 400" class="cake-svg">
+            <circle cx="200" cy="200" r="190" fill="#f6e3d7"/>
+            <ellipse cx="200" cy="325" rx="150" ry="22" fill="#e9cbb8"/>
+            <!-- piatto -->
+            <ellipse cx="200" cy="305" rx="140" ry="20" fill="#fff"/>
+            <!-- strato basso -->
+            <rect x="85" y="215" width="230" height="90" rx="12" fill="#f3c6cf"/>
+            <ellipse cx="200" cy="305" rx="115" ry="12" fill="#e7a9b6"/>
+            <path d="M85 240 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 40 0 v-25 h-230z" fill="#fff7f2"/>
+            <!-- strato alto -->
+            <rect x="120" y="140" width="160" height="80" rx="12" fill="#7a2e3a"/>
+            <path d="M120 160 q16 20 32 0 q16 20 32 0 q16 20 32 0 q16 20 32 0 q16 20 32 0 v-20 h-160z" fill="#fff7f2"/>
+            <ellipse cx="200" cy="140" rx="80" ry="12" fill="#fff7f2"/>
+            <!-- ciliegie / frutti -->
+            <circle cx="170" cy="128" r="11" fill="#c0392b"/>
+            <circle cx="200" cy="122" r="12" fill="#c0392b"/>
+            <circle cx="230" cy="128" r="11" fill="#c0392b"/>
+            <path d="M200 110 q6 -26 22 -34" stroke="#3d6b35" stroke-width="3" fill="none"/>
+            <circle cx="196" cy="118" r="3" fill="#fff" opacity=".6"/>
+            <!-- candela -->
+            <rect x="196" y="70" width="8" height="40" rx="3" fill="#d9a441"/>
+            <path d="M200 50 q10 12 0 22 q-10 -10 0 -22z" fill="#f39c12" class="flame"/>
+            <!-- decorazioni -->
+            <circle cx="110" cy="270" r="5" fill="#fff"/>
+            <circle cx="150" cy="282" r="5" fill="#fff"/>
+            <circle cx="250" cy="282" r="5" fill="#fff"/>
+            <circle cx="290" cy="270" r="5" fill="#fff"/>
+            <circle cx="200" cy="286" r="5" fill="#fff"/>
+          </svg>
+          <div class="badge">
+            <strong>Dal forno</strong>
+            <span>alle 6:30</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CHI SIAMO ========== -->
+    <section id="chi-siamo" class="section">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <p class="eyebrow">Chi siamo</p>
+          <h2>Un laboratorio, una famiglia, un quartiere</h2>
+          <p>Dolcerione nasce dal desiderio di riportare nel quartiere il profumo della pasticceria di una volta: quella dove ti conoscono per nome, sanno come preferisci il cappuccino e ti mettono da parte l'ultimo cannolo.</p>
+          <p>Ogni notte il nostro laboratorio si accende per impastare, sfogliare e farcire. Niente semilavorati industriali: le creme sono cotte da noi, le frolle riposano il tempo giusto e la frutta segue le stagioni.</p>
+          <ul class="values">
+            <li><span>🧈</span><div><strong>Ingredienti veri</strong>Burro, uova fresche, farine selezionate e cioccolato di qualità.</div></li>
+            <li><span>🌙</span><div><strong>Fatto ogni giorno</strong>Prepariamo tutto in laboratorio, ogni notte, per il giorno dopo.</div></li>
+            <li><span>🍋</span><div><strong>Frutta di stagione</strong>Crostate e semifreddi seguono il calendario dell'orto.</div></li>
+          </ul>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat"><strong data-count="40">0</strong><span>tipi di pasticcini</span></div>
+          <div class="stat"><strong data-count="1200">0</strong><span>cornetti a settimana</span></div>
+          <div class="stat"><strong data-count="100">0</strong><span>% artigianale</span></div>
+          <div class="stat"><strong data-count="7">0</strong><span>giorni su 7 di bontà</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRODOTTI ========== -->
+    <section id="prodotti" class="section section-tinted">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">I nostri dolci</p>
+          <h2>Dalla colazione al dessert</h2>
+          <p>Una selezione di ciò che trovi ogni giorno in vetrina. Il resto… vieni a scoprirlo!</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Filtra per categoria">
+          <button class="filter active" data-filter="tutti" role="tab" aria-selected="true">Tutti</button>
+          <button class="filter" data-filter="colazione" role="tab" aria-selected="false">Colazione</button>
+          <button class="filter" data-filter="pasticceria" role="tab" aria-selected="false">Pasticceria</button>
+          <button class="filter" data-filter="torte" role="tab" aria-selected="false">Torte</button>
+          <button class="filter" data-filter="tradizione" role="tab" aria-selected="false">Tradizione</button>
+        </div>
+
+        <div class="products" id="products">
+          <article class="card" data-cat="colazione">
+            <div class="card-img" style="--bg:#f8e1c4">🥐</div>
+            <div class="card-body">
+              <h3>Cornetto sfogliato</h3>
+              <p>Sfoglia al burro con 27 strati, vuoto o farcito con crema, marmellata di albicocca o pistacchio.</p>
+              <span class="price">da € 1,40</span>
+            </div>
+          </article>
+          <article class="card" data-cat="colazione">
+            <div class="card-img" style="--bg:#f3d9c9">🍩</div>
+            <div class="card-body">
+              <h3>Bomboloni</h3>
+              <p>Soffici e fritti al momento, passati nello zucchero e farciti di crema pasticcera calda.</p>
+              <span class="price">€ 1,60</span>
+            </div>
+          </article>
+          <article class="card" data-cat="pasticceria">
+            <div class="card-img" style="--bg:#f6d3db">🧁</div>
+            <div class="card-body">
+              <h3>Mignon assortiti</h3>
+              <p>Bignè, cannoncini, babà, tartellette alla frutta e diplomatiche. Perfetti per ogni vassoio.</p>
+              <span class="price">€ 28,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="pasticceria">
+            <div class="card-img" style="--bg:#efe0cf">🍪</div>
+            <div class="card-body">
+              <h3>Pasticceria secca</h3>
+              <p>Frollini, paste di mandorla, brutti ma buoni e biscotti da tè, ideali da regalare.</p>
+              <span class="price">€ 24,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="torte">
+            <div class="card-img" style="--bg:#e8cfc4">🍰</div>
+            <div class="card-body">
+              <h3>Torta della casa</h3>
+              <p>Pan di Spagna, crema chantilly e fragole fresche: la nostra torta più richiesta.</p>
+              <span class="price">€ 30,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="torte">
+            <div class="card-img" style="--bg:#dcc3b8">🍫</div>
+            <div class="card-body">
+              <h3>Sacher & Caprese</h3>
+              <p>Due classici al cioccolato fondente: la viennese con confettura e la caprese alle mandorle.</p>
+              <span class="price">€ 32,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="tradizione">
+            <div class="card-img" style="--bg:#f4e6c8">🫓</div>
+            <div class="card-body">
+              <h3>Maritozzi con la panna</h3>
+              <p>Brioche morbida e profumata, aperta e riempita con panna montata fresca.</p>
+              <span class="price">€ 2,50</span>
+            </div>
+          </article>
+          <article class="card" data-cat="tradizione">
+            <div class="card-img" style="--bg:#f1dccc">🥧</div>
+            <div class="card-body">
+              <h3>Crostata ricotta e visciole</h3>
+              <p>Frolla friabile, ricotta di pecora e visciole sciroppate: un classico romano.</p>
+              <span class="price">€ 26,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="tradizione">
+            <div class="card-img" style="--bg:#f7e9d6">🎄</div>
+            <div class="card-body">
+              <h3>Lievitati delle feste</h3>
+              <p>Panettoni, pandori e colombe a lievitazione naturale, su prenotazione nei mesi di festa.</p>
+              <span class="price">su prenotazione</span>
+            </div>
+          </article>
+        </div>
+        <p class="note">I prezzi sono indicativi e possono variare. Chiedi in negozio per allergeni e disponibilità del giorno.</p>
+      </div>
+    </section>
+
+    <!-- ========== ORDINAZIONI ========== -->
+    <section id="ordinazioni" class="section">
+      <div class="container order-grid">
+        <div class="reveal">
+          <p class="eyebrow">Su ordinazione</p>
+          <h2>La torta per il tuo giorno speciale</h2>
+          <p>Compleanni, battesimi, comunioni, lauree e matrimoni: progettiamo insieme a te una torta su misura, scegliendo base, farcitura e decorazione.</p>
+          <ol class="steps">
+            <li><strong>Raccontaci l'occasione</strong> – numero di persone, data e gusti preferiti.</li>
+            <li><strong>Scegli i sapori</strong> – ti proponiamo abbinamenti e, se vuoi, un assaggio.</li>
+            <li><strong>Ritira e festeggia</strong> – la torta sarà pronta nel giorno e all'ora concordati.</li>
+          </ol>
+          <p class="note">Consigliamo di ordinare con almeno <strong>3 giorni</strong> di anticipo (2 settimane per torte a piani).</p>
+          <a href="#contatti" class="btn">Richiedi un preventivo</a>
+        </div>
+        <div class="occasions reveal">
+          <div class="occasion">🎂<span>Compleanni</span></div>
+          <div class="occasion">💍<span>Matrimoni</span></div>
+          <div class="occasion">🕊️<span>Battesimi e comunioni</span></div>
+          <div class="occasion">🎓<span>Lauree</span></div>
+          <div class="occasion">🏢<span>Eventi aziendali</span></div>
+          <div class="occasion">🌾<span>Opzioni senza lattosio</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RECENSIONI ========== -->
+    <section id="recensioni" class="section section-dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Dicono di noi</p>
+          <h2>Le parole del quartiere</h2>
+        </div>
+        <div class="reviews">
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>«I maritozzi più buoni della zona, la domenica mattina c'è la fila e capisco perché!»</blockquote>
+            <figcaption>— Cliente abituale</figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>«Abbiamo ordinato la torta per la comunione di nostra figlia: bellissima e soprattutto buonissima.»</blockquote>
+            <figcaption>— Famiglia del rione</figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>«Personale gentilissimo e cornetti sempre caldi. È diventata la mia colazione fissa prima del lavoro.»</blockquote>
+            <figcaption>— Cliente del mattino</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DOVE SIAMO ========== -->
+    <section id="dove-siamo" class="section">
+      <div class="container where-grid">
+        <div class="reveal">
+          <p class="eyebrow">Dove siamo</p>
+          <h2>Passa a trovarci</h2>
+          <address class="address">
+            <!-- TODO: sostituire con l'indirizzo reale -->
+            <strong>Pasticceria Dolcerione</strong><br>
+            Via del Rione, 1<br>
+            00100 Città (XX)
+          </address>
+          <table class="hours" aria-label="Orari di apertura">
+            <tbody>
+              <tr data-day="1"><th>Lunedì</th><td>Chiuso</td></tr>
+              <tr data-day="2"><th>Martedì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="3"><th>Mercoledì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="4"><th>Giovedì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="5"><th>Venerdì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="6"><th>Sabato</th><td>6:30 – 21:00</td></tr>
+              <tr data-day="0"><th>Domenica</th><td>7:00 – 14:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="map reveal">
+          <!-- TODO: sostituire con l'iframe di Google Maps dell'indirizzo reale -->
+          <svg viewBox="0 0 400 300" role="img" aria-label="Mappa illustrativa">
+            <rect width="400" height="300" fill="#f3ebe3"/>
+            <path d="M0 90 H400 M0 210 H400 M120 0 V300 M290 0 V300" stroke="#fff" stroke-width="22"/>
+            <path d="M0 150 C120 140 220 170 400 150" stroke="#fff" stroke-width="12" fill="none"/>
+            <rect x="140" y="105" width="130" height="90" rx="6" fill="#e2d2c3"/>
+            <rect x="10" y="10" width="95" height="65" rx="6" fill="#cfe0c5"/>
+            <rect x="305" y="225" width="85" height="65" rx="6" fill="#cfe0c5"/>
+            <g transform="translate(205 140)"><g class="pin">
+              <path d="M0 0 C-6 -14 -22 -24 -22 -40 A22 22 0 1 1 22 -40 C22 -24 6 -14 0 0z" fill="#7a2e3a"/>
+              <circle cx="0" cy="-40" r="8" fill="#fff"/>
+            </g></g>
+          </svg>
+          <a class="btn btn-small map-link" href="https://www.google.com/maps/search/?api=1&query=Pasticceria+Dolcerione" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATTI ========== -->
+    <section id="contatti" class="section section-tinted">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">Contatti</p>
+          <h2>Scrivici o chiamaci</h2>
+          <p>Per ordinazioni, preventivi o semplicemente per sapere se è rimasto l'ultimo bombolone.</p>
+          <ul class="contact-list">
+            <!-- TODO: sostituire con i recapiti reali -->
+            <li><span>📞</span><a href="tel:+390000000000">+39 000 000 0000</a></li>
+            <li><span>💬</span><a href="https://wa.me/390000000000" target="_blank" rel="noopener">Scrivici su WhatsApp</a></li>
+            <li><span>✉️</span><a href="mailto:info@dolcerione.it">info@dolcerione.it</a></li>
+            <li><span>📷</span><a href="https://www.instagram.com/" target="_blank" rel="noopener">@dolcerione</a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="telefono">Telefono</label>
+              <input id="telefono" name="telefono" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="data">Data ritiro</label>
+              <input id="data" name="data" type="date">
+            </div>
+          </div>
+          <div class="field">
+            <label for="tipo">Motivo</label>
+            <select id="tipo" name="tipo">
+              <option>Torta su ordinazione</option>
+              <option>Vassoio di pasticcini</option>
+              <option>Lievitati delle feste</option>
+              <option>Informazioni</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" rows="4" required placeholder="Es. torta per 12 persone, gusto cioccolato e lamponi…"></textarea>
+          </div>
+          <button type="submit" class="btn">Invia richiesta</button>
+          <p class="form-msg" id="form-msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="logo logo-light">
+          <img src="assets/favicon.svg" alt="" width="32" height="32">
+          <span>Dolce<em>rione</em></span>
+        </a>
+        <p>Pasticceria artigianale di quartiere.<br>Fatto a mano, ogni giorno.</p>
+      </div>
+      <nav aria-label="Link rapidi">
+        <a href="#prodotti">I nostri dolci</a>
+        <a href="#ordinazioni">Su ordinazione</a>
+        <a href="#dove-siamo">Orari</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <p class="copy">© <span id="year"></span> Dolcerione · P.IVA 00000000000</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
