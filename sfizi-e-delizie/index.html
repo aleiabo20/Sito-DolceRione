@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sfizi e Delizie · Caffetteria e pasticceria a Frosinone</title>
+  <meta name="description" content="Sfizi e Delizie, caffetteria e pasticceria a Frosinone: colazioni, cornetti farciti al momento, tortini, torte su ordinazione e sfizi per ogni momento della giornata.">
+  <meta name="theme-color" content="#3f5f33">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#top" class="logo" aria-label="Sfizi e Delizie, torna all'inizio">
+        <img src="assets/favicon.svg" alt="" width="36" height="36">
+        <span>Sfizi <em>&amp;</em> Delizie</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="nav">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#prodotti">Il menù</a>
+        <a href="#ordinazioni">Su ordinazione</a>
+        <a href="#recensioni">Dicono di noi</a>
+        <a href="#dove-siamo">Dove siamo</a>
+        <a href="#contatti" class="btn btn-small">Contattaci</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Caffetteria &amp; pasticceria · Frosinone</p>
+          <h1>Ogni giorno<br>un piccolo <em>sfizio</em>,<br>una grande delizia.</h1>
+          <p class="lead">Cornetti farciti al momento, tortini golosi, caffè fatto come si deve e dolci per le tue feste. Il posto giusto per la colazione, la pausa o un pensiero dolce da portare a casa.</p>
+          <div class="hero-actions">
+            <a href="#prodotti" class="btn">Scopri il menù</a>
+            <a href="#ordinazioni" class="btn btn-ghost">Ordina una torta</a>
+          </div>
+          <p class="open-now" id="open-status" aria-live="polite"></p>
+        </div>
+
+        <div class="hero-art">
+          <div class="stage" id="stage" data-filling="pistacchio">
+            <svg viewBox="0 0 400 400" class="breakfast-svg" id="breakfast" role="group" aria-label="Colazione interattiva: scegli la farcitura del cornetto, toccalo per assaggiarlo e tocca il cappuccino">
+              <circle cx="200" cy="200" r="190" fill="#f3eadb"/>
+              <!-- tovaglietta -->
+              <ellipse cx="200" cy="318" rx="175" ry="30" fill="#e6d6bf"/>
+
+              <!-- piattino del cornetto -->
+              <ellipse cx="140" cy="300" rx="105" ry="20" fill="#fff"/>
+              <ellipse cx="140" cy="298" rx="80" ry="12" fill="#f4efe6"/>
+
+              <!-- cornetto -->
+              <g class="cornetto" id="cornetto" tabindex="0" role="button" aria-label="Assaggia il cornetto">
+                <g transform="translate(140 262)">
+                  <ellipse cx="-66" cy="22" rx="17" ry="12" transform="rotate(-38 -66 22)" fill="#c9792f"/>
+                  <ellipse cx="66" cy="22" rx="17" ry="12" transform="rotate(38 66 22)" fill="#c9792f"/>
+                  <ellipse cx="-40" cy="4" rx="25" ry="22" transform="rotate(-22 -40 4)" fill="#d98c3e"/>
+                  <ellipse cx="40" cy="4" rx="25" ry="22" transform="rotate(22 40 4)" fill="#d98c3e"/>
+                  <ellipse cx="0" cy="-6" rx="31" ry="29" fill="#e6a050"/>
+                  <!-- pieghe della sfoglia -->
+                  <g fill="none" stroke="#b86a26" stroke-width="2.5" stroke-linecap="round" opacity=".6">
+                    <path d="M-20 -26 q-6 20 0 40"/><path d="M20 -26 q6 20 0 40"/>
+                    <path d="M-52 -10 q-4 14 2 28"/><path d="M52 -10 q4 14 -2 28"/>
+                  </g>
+                  <ellipse cx="-8" cy="-22" rx="12" ry="5" fill="#f4c27f" opacity=".7"/>
+                  <!-- farcitura che cola -->
+                  <path class="c-fill" d="M-30 -18 q10 -16 30 -16 q20 0 30 16 q2 10 -4 10 q-5 0 -5 10 q0 7 -5 7 q-5 0 -5 -9 q0 -6 -6 -6 q-6 0 -6 12 q0 6 -5 6 q-5 0 -5 -8 q0 -8 -7 -8 q-6 0 -6 6 q0 5 -4 5 q-6 0 -5 -11z"/>
+                  <!-- granella -->
+                  <g class="c-grain">
+                    <circle cx="-14" cy="-24" r="2.6"/><circle cx="-2" cy="-28" r="2.2"/><circle cx="10" cy="-24" r="2.8"/>
+                    <circle cx="20" cy="-18" r="2.2"/><circle cx="-22" cy="-16" r="2.2"/><circle cx="2" cy="-18" r="2.4"/>
+                  </g>
+                </g>
+                <g id="crumbs"></g>
+              </g>
+
+              <!-- piattino della tazza -->
+              <ellipse cx="292" cy="300" rx="70" ry="15" fill="#fff"/>
+              <ellipse cx="292" cy="297" rx="44" ry="8" fill="#f1ebe1"/>
+
+              <!-- cappuccino -->
+              <g class="cup" id="cup" tabindex="0" role="button" aria-label="Disegna sul cappuccino">
+                <path d="M340 236 q30 -2 28 22 q-2 22 -30 20" fill="none" stroke="#fff" stroke-width="10"/>
+                <path d="M342 238 q24 0 22 20 q-2 18 -24 18" fill="none" stroke="#e8ddd0" stroke-width="3"/>
+                <path d="M244 226 h96 v18 q0 52 -48 52 q-48 0 -48 -52z" fill="#fff"/>
+                <path d="M244 244 q0 52 48 52 q48 0 48 -52" fill="none" stroke="#e8ddd0" stroke-width="3"/>
+                <ellipse cx="292" cy="226" rx="48" ry="11" fill="#7b4a2c"/>
+                <ellipse cx="292" cy="226" rx="41" ry="8.5" fill="#f2e3cf"/>
+                <!-- latte art -->
+                <g class="latte-art" fill="#b07a4f">
+                  <path class="art art-heart" d="M292 233 c-16 -7 -14 -17 -6 -17 c4 0 6 3 6 5 c0 -2 2 -5 6 -5 c8 0 10 10 -6 17z"/>
+                  <g class="art art-leaf">
+                    <ellipse cx="292" cy="226" rx="20" ry="5"/>
+                    <ellipse cx="292" cy="226" rx="14" ry="3.2" fill="#f2e3cf"/>
+                    <ellipse cx="292" cy="226" rx="8" ry="1.8"/>
+                    <path d="M270 226 h44" stroke="#b07a4f" stroke-width="1.5"/>
+                  </g>
+                  <g class="art art-smile">
+                    <circle cx="285" cy="223" r="2"/><circle cx="299" cy="223" r="2"/>
+                    <path d="M283 228 q9 6 18 0" stroke="#b07a4f" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  </g>
+                </g>
+                <!-- vapore -->
+                <g class="steam" fill="none" stroke="#c9b8a6" stroke-width="4" stroke-linecap="round">
+                  <path d="M276 206 q-8 -12 0 -24 q8 -12 0 -24"/>
+                  <path d="M292 200 q-8 -12 0 -24 q8 -12 0 -24"/>
+                  <path d="M308 206 q-8 -12 0 -24 q8 -12 0 -24"/>
+                </g>
+              </g>
+            </svg>
+            <p class="bubble" id="bubble" aria-live="polite"></p>
+          </div>
+          <div class="badge" aria-hidden="true">
+            <strong>Farciti</strong>
+            <span>al momento</span>
+          </div>
+          <div class="choices" role="radiogroup" aria-label="Scegli la farcitura del cornetto">
+            <button class="choice active" data-filling="pistacchio" role="radio" aria-checked="true"><i style="--sw:#9cbf5a"></i>Pistacchio</button>
+            <button class="choice" data-filling="nutella" role="radio" aria-checked="false"><i style="--sw:#5a3420"></i>Nutella</button>
+            <button class="choice" data-filling="crema" role="radio" aria-checked="false"><i style="--sw:#f2cd6b"></i>Crema</button>
+            <button class="choice" data-filling="frutti" role="radio" aria-checked="false"><i style="--sw:#b8324a"></i>Frutti di bosco</button>
+          </div>
+          <p class="art-hint">Scegli la farcitura, tocca il cornetto per un morso e il cappuccino per un disegno nella schiuma ☕</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CHI SIAMO ========== -->
+    <section id="chi-siamo" class="section">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <p class="eyebrow">Chi siamo</p>
+          <h2>Il tuo angolo di dolcezza a Frosinone</h2>
+          <p>Sfizi e Delizie è la caffetteria-pasticceria dove fermarsi per una colazione fatta bene, una pausa golosa a metà pomeriggio o per scegliere il dolce da portare a tavola la domenica.</p>
+          <p>Ogni mattina sforniamo cornetti e lievitati, li farciamo al momento con creme preparate da noi e serviamo il caffè con la cura che merita. Piccoli sfizi, grandi delizie: è tutto qui.</p>
+          <ul class="values">
+            <li><span>🥐</span><div><strong>Farciti al momento</strong>Il cornetto lo riempiamo davanti a te, con la crema che preferisci.</div></li>
+            <li><span>☕</span><div><strong>Caffè a regola d'arte</strong>Espresso, cappuccino e specialità calde e fredde per ogni stagione.</div></li>
+            <li><span>🎂</span><div><strong>Dolci per le tue feste</strong>Torte, vassoi di pasticcini e tortini per ogni occasione.</div></li>
+          </ul>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat"><strong data-count="10">0</strong><span>farciture da scegliere</span></div>
+          <div class="stat"><strong data-count="30">0</strong><span>tipi di pasticcini</span></div>
+          <div class="stat"><strong data-count="100">0</strong><span>% preparato da noi</span></div>
+          <div class="stat"><strong data-count="1">0</strong><span>sorriso garantito a ogni caffè</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRODOTTI ========== -->
+    <section id="prodotti" class="section section-tinted">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Il menù</p>
+          <h2>Dalla colazione all'aperitivo</h2>
+          <p>Un assaggio di quello che trovi al banco. Le specialità del giorno ti aspettano in vetrina!</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Filtra per categoria">
+          <button class="filter active" data-filter="tutti" role="tab" aria-selected="true">Tutti</button>
+          <button class="filter" data-filter="colazione" role="tab" aria-selected="false">Colazione</button>
+          <button class="filter" data-filter="caffetteria" role="tab" aria-selected="false">Caffetteria</button>
+          <button class="filter" data-filter="pasticceria" role="tab" aria-selected="false">Pasticceria</button>
+          <button class="filter" data-filter="sfizi" role="tab" aria-selected="false">Sfizi salati</button>
+        </div>
+
+        <!-- TODO: verificare prodotti e prezzi con il menù reale -->
+        <div class="products" id="products">
+          <article class="card" data-cat="colazione">
+            <div class="card-img" style="--bg:#e3edd2">🥐</div>
+            <div class="card-body">
+              <h3>Cornetto al pistacchio</h3>
+              <p>Il nostro best seller: sfoglia dorata farcita al momento con crema al pistacchio e granella.</p>
+              <span class="price">€ 1,80</span>
+            </div>
+          </article>
+          <article class="card" data-cat="colazione">
+            <div class="card-img" style="--bg:#f6e6cc">🥐</div>
+            <div class="card-body">
+              <h3>Cornetti farciti</h3>
+              <p>Vuoto, crema, Nutella, marmellata o frutti di bosco: scegli tu, lo farciamo davanti a te.</p>
+              <span class="price">da € 1,30</span>
+            </div>
+          </article>
+          <article class="card" data-cat="pasticceria">
+            <div class="card-img" style="--bg:#efdccb">🧁</div>
+            <div class="card-body">
+              <h3>Tortino panna e Nutella</h3>
+              <p>Base soffice, panna fresca montata e un cuore generoso di Nutella. Uno sfizio irresistibile.</p>
+              <span class="price">€ 3,00</span>
+            </div>
+          </article>
+          <article class="card" data-cat="caffetteria">
+            <div class="card-img" style="--bg:#eadccd">☕</div>
+            <div class="card-body">
+              <h3>Caffè &amp; cappuccino</h3>
+              <p>Espresso, macchiato, cappuccino con schiuma cremosa, ginseng, orzo e latte vegetale.</p>
+              <span class="price">da € 1,10</span>
+            </div>
+          </article>
+          <article class="card" data-cat="caffetteria">
+            <div class="card-img" style="--bg:#e6d3c4">🍫</div>
+            <div class="card-body">
+              <h3>Cioccolata calda</h3>
+              <p>Densa e vellutata, al naturale o con panna. In estate: caffè shakerato e cremino al caffè.</p>
+              <span class="price">€ 2,50</span>
+            </div>
+          </article>
+          <article class="card" data-cat="pasticceria">
+            <div class="card-img" style="--bg:#f4dde0">🍰</div>
+            <div class="card-body">
+              <h3>Mignon &amp; monoporzioni</h3>
+              <p>Bignè, cannoli, babà, tartellette alla frutta e monoporzioni moderne da gustare al tavolo.</p>
+              <span class="price">€ 26,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="pasticceria">
+            <div class="card-img" style="--bg:#f3e7cf">🍪</div>
+            <div class="card-body">
+              <h3>Biscotteria</h3>
+              <p>Frollini, ciambelline al vino e paste di mandorla: perfetti da regalare o per il tè.</p>
+              <span class="price">€ 22,00 / kg</span>
+            </div>
+          </article>
+          <article class="card" data-cat="sfizi">
+            <div class="card-img" style="--bg:#f6ead0">🥪</div>
+            <div class="card-body">
+              <h3>Tramezzini &amp; panini</h3>
+              <p>Per una pausa pranzo veloce: tramezzini morbidi, panini e piadine farciti ogni giorno.</p>
+              <span class="price">da € 2,50</span>
+            </div>
+          </article>
+          <article class="card" data-cat="sfizi">
+            <div class="card-img" style="--bg:#f1e0c6">🍕</div>
+            <div class="card-body">
+              <h3>Pizzette &amp; rustici</h3>
+              <p>Pizzette, sfogliatine e rustici: ideali per l'aperitivo o da ordinare per le feste.</p>
+              <span class="price">€ 20,00 / kg</span>
+            </div>
+          </article>
+        </div>
+        <p class="note">I prezzi sono indicativi e possono variare. Chiedi al banco per allergeni e disponibilità del giorno.</p>
+      </div>
+    </section>
+
+    <!-- ========== ORDINAZIONI ========== -->
+    <section id="ordinazioni" class="section">
+      <div class="container order-grid">
+        <div class="reveal">
+          <p class="eyebrow">Su ordinazione</p>
+          <h2>Torte e vassoi per le tue occasioni</h2>
+          <p>Compleanni, battesimi, comunioni, lauree o un semplice pranzo della domenica: prepariamo torte personalizzate, vassoi di pasticcini e buffet dolci e salati.</p>
+          <ol class="steps">
+            <li><strong>Raccontaci la festa</strong> – data, numero di ospiti e gusti preferiti.</li>
+            <li><strong>Scegliamo insieme</strong> – base, farcitura, decorazione e quantità.</li>
+            <li><strong>Ritira e festeggia</strong> – tutto pronto nel giorno e all'ora concordati.</li>
+          </ol>
+          <p class="note">Consigliamo di ordinare con almeno <strong>3 giorni</strong> di anticipo.</p>
+          <a href="#contatti" class="btn">Richiedi un preventivo</a>
+        </div>
+        <div class="occasions reveal">
+          <div class="occasion">🎂<span>Compleanni</span></div>
+          <div class="occasion">🕊️<span>Battesimi e comunioni</span></div>
+          <div class="occasion">🎓<span>Lauree</span></div>
+          <div class="occasion">💍<span>Anniversari</span></div>
+          <div class="occasion">🥂<span>Buffet e aperitivi</span></div>
+          <div class="occasion">🏢<span>Colazioni in ufficio</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RECENSIONI ========== -->
+    <section id="recensioni" class="section section-dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Dicono di noi</p>
+          <h2>Le parole dei nostri clienti</h2>
+        </div>
+        <!-- TODO: sostituire con recensioni reali (es. da Google) -->
+        <div class="reviews">
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>«Il cornetto al pistacchio è una garanzia: farcito al momento e con tanta crema. Colazione perfetta!»</blockquote>
+            <figcaption>— Cliente del mattino</figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>«Personale gentile, ambiente accogliente e i tortini panna e Nutella sono una tentazione continua.»</blockquote>
+            <figcaption>— Cliente abituale</figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>«Abbiamo ordinato la torta per il compleanno di nostro figlio: bella, buona e pronta puntuale.»</blockquote>
+            <figcaption>— Famiglia di Frosinone</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DOVE SIAMO ========== -->
+    <section id="dove-siamo" class="section">
+      <div class="container where-grid">
+        <div class="reveal">
+          <p class="eyebrow">Dove siamo</p>
+          <h2>Vieni a trovarci</h2>
+          <address class="address">
+            <!-- TODO: verificare l'indirizzo (preso da un elenco online) -->
+            <strong>Sfizi e Delizie</strong><br>
+            Via Tommaso Landolfi, 3<br>
+            03100 Frosinone (FR)
+          </address>
+          <!-- TODO: sostituire con gli orari reali (anche in script.js, costante HOURS) -->
+          <table class="hours" aria-label="Orari di apertura">
+            <tbody>
+              <tr data-day="1"><th>Lunedì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="2"><th>Martedì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="3"><th>Mercoledì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="4"><th>Giovedì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="5"><th>Venerdì</th><td>6:30 – 20:00</td></tr>
+              <tr data-day="6"><th>Sabato</th><td>6:30 – 20:30</td></tr>
+              <tr data-day="0"><th>Domenica</th><td>7:00 – 13:30</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="map reveal">
+          <iframe title="Mappa: Sfizi e Delizie, Via Tommaso Landolfi 3, Frosinone" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Via%20Tommaso%20Landolfi%203%2C%2003100%20Frosinone&z=16&output=embed"></iframe>
+          <a class="btn btn-small map-link" href="https://www.google.com/maps/search/?api=1&query=Sfizi+e+Delizie+Via+Tommaso+Landolfi+3+Frosinone" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATTI ========== -->
+    <section id="contatti" class="section section-tinted">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">Contatti</p>
+          <h2>Scrivici o chiamaci</h2>
+          <p>Per ordinazioni, preventivi o per sapere se sono rimasti cornetti al pistacchio.</p>
+          <ul class="contact-list">
+            <!-- TODO: sostituire con i recapiti reali -->
+            <li><span>📞</span><a href="tel:+390000000000">+39 0775 000 000</a></li>
+            <li><span>💬</span><a href="https://wa.me/390000000000" target="_blank" rel="noopener">Scrivici su WhatsApp</a></li>
+            <li><span>✉️</span><a href="mailto:info@sfiziedelizie.it">info@sfiziedelizie.it</a></li>
+            <li><span>📷</span><a href="https://www.instagram.com/" target="_blank" rel="noopener">@sfiziedelizie</a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="telefono">Telefono</label>
+              <input id="telefono" name="telefono" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="data">Data ritiro</label>
+              <input id="data" name="data" type="date">
+            </div>
+          </div>
+          <div class="field">
+            <label for="tipo">Motivo</label>
+            <select id="tipo" name="tipo">
+              <option>Torta su ordinazione</option>
+              <option>Vassoio di pasticcini</option>
+              <option>Buffet dolce e salato</option>
+              <option>Informazioni</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" rows="4" required placeholder="Es. torta per 15 persone, crema e fragole, sabato alle 17…"></textarea>
+          </div>
+          <button type="submit" class="btn">Invia richiesta</button>
+          <p class="form-msg" id="form-msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="logo logo-light">
+          <img src="assets/favicon.svg" alt="" width="32" height="32">
+          <span>Sfizi <em>&amp;</em> Delizie</span>
+        </a>
+        <p>Caffetteria e pasticceria a Frosinone.<br>Piccoli sfizi, grandi delizie.</p>
+      </div>
+      <nav aria-label="Link rapidi">
+        <a href="#prodotti">Il menù</a>
+        <a href="#ordinazioni">Su ordinazione</a>
+        <a href="#dove-siamo">Orari</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <p class="copy">© <span id="year"></span> Sfizi e Delizie · Frosinone · P.IVA 00000000000</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
