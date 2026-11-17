@@ -49,40 +49,63 @@
           </div>
           <p class="open-now" id="open-status" aria-live="polite"></p>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 400 400" class="cake-svg">
-            <circle cx="200" cy="200" r="190" fill="#f6e3d7"/>
-            <ellipse cx="200" cy="325" rx="150" ry="22" fill="#e9cbb8"/>
-            <!-- piatto -->
-            <ellipse cx="200" cy="305" rx="140" ry="20" fill="#fff"/>
-            <!-- strato basso -->
-            <rect x="85" y="215" width="230" height="90" rx="12" fill="#f3c6cf"/>
-            <ellipse cx="200" cy="305" rx="115" ry="12" fill="#e7a9b6"/>
-            <path d="M85 240 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 40 0 v-25 h-230z" fill="#fff7f2"/>
-            <!-- strato alto -->
-            <rect x="120" y="140" width="160" height="80" rx="12" fill="#7a2e3a"/>
-            <path d="M120 160 q16 20 32 0 q16 20 32 0 q16 20 32 0 q16 20 32 0 q16 20 32 0 v-20 h-160z" fill="#fff7f2"/>
-            <ellipse cx="200" cy="140" rx="80" ry="12" fill="#fff7f2"/>
-            <!-- ciliegie / frutti -->
-            <circle cx="170" cy="128" r="11" fill="#c0392b"/>
-            <circle cx="200" cy="122" r="12" fill="#c0392b"/>
-            <circle cx="230" cy="128" r="11" fill="#c0392b"/>
-            <path d="M200 110 q6 -26 22 -34" stroke="#3d6b35" stroke-width="3" fill="none"/>
-            <circle cx="196" cy="118" r="3" fill="#fff" opacity=".6"/>
-            <!-- candela -->
-            <rect x="196" y="70" width="8" height="40" rx="3" fill="#d9a441"/>
-            <path d="M200 50 q10 12 0 22 q-10 -10 0 -22z" fill="#f39c12" class="flame"/>
-            <!-- decorazioni -->
-            <circle cx="110" cy="270" r="5" fill="#fff"/>
-            <circle cx="150" cy="282" r="5" fill="#fff"/>
-            <circle cx="250" cy="282" r="5" fill="#fff"/>
-            <circle cx="290" cy="270" r="5" fill="#fff"/>
-            <circle cx="200" cy="286" r="5" fill="#fff"/>
-          </svg>
-          <div class="badge">
+        <div class="hero-art">
+          <div class="cake-stage" id="cake-stage">
+            <svg viewBox="0 0 400 400" class="cake-svg" id="cake" role="group" aria-label="Torta interattiva: scegli il gusto, tocca la torta per gli zuccherini e la candelina per esprimere un desiderio">
+              <circle cx="200" cy="200" r="190" fill="#f6e3d7"/>
+              <ellipse cx="200" cy="325" rx="150" ry="22" fill="#e9cbb8"/>
+              <!-- piatto -->
+              <ellipse cx="200" cy="305" rx="140" ry="20" fill="#fff"/>
+              <g class="cake-body" id="cake-body">
+                <!-- strato basso -->
+                <rect class="c-bottom" x="85" y="215" width="230" height="90" rx="12"/>
+                <ellipse class="c-bottom-shade" cx="200" cy="305" rx="115" ry="12"/>
+                <path class="c-cream" d="M85 240 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 38 0 q20 22 40 0 v-25 h-230z"/>
+                <!-- strato alto -->
+                <rect class="c-top" x="120" y="140" width="160" height="80" rx="12"/>
+                <path class="c-cream" d="M120 160 q16 20 32 0 q16 20 32 0 q16 20 32 0 q16 20 32 0 q16 20 32 0 v-20 h-160z"/>
+                <ellipse class="c-cream" cx="200" cy="140" rx="80" ry="12"/>
+                <!-- frutti -->
+                <g class="fruits">
+                  <circle class="c-fruit" cx="170" cy="128" r="11"/>
+                  <circle class="c-fruit" cx="230" cy="128" r="11"/>
+                </g>
+                <!-- decorazioni -->
+                <g fill="#fff">
+                  <circle cx="110" cy="270" r="5"/><circle cx="150" cy="282" r="5"/><circle cx="200" cy="286" r="5"/>
+                  <circle cx="250" cy="282" r="5"/><circle cx="290" cy="270" r="5"/>
+                </g>
+                <g id="sprinkles"></g>
+              </g>
+              <!-- candelina -->
+              <g class="candle" id="candle" tabindex="0" role="button" aria-label="Spegni la candelina" aria-pressed="false">
+                <rect x="176" y="36" width="48" height="80" fill="transparent"/>
+                <rect x="196" y="70" width="8" height="40" rx="3" fill="#d9a441"/>
+                <path d="M197 72 h6" stroke="#b5832a" stroke-width="2"/>
+                <circle class="flame-glow" cx="200" cy="58" r="20" fill="#f9d77e"/>
+                <path class="flame" d="M200 46 q11 14 0 26 q-11 -12 0 -26z" fill="#f39c12"/>
+                <path class="flame" d="M200 56 q5 7 0 14 q-5 -7 0 -14z" fill="#fff3c4"/>
+                <g class="smoke" fill="none" stroke="#b9a7a2" stroke-width="3" stroke-linecap="round">
+                  <path d="M200 68 q-8 -10 0 -20 q8 -10 0 -20"/>
+                </g>
+              </g>
+              <circle class="c-fruit" cx="200" cy="122" r="12"/>
+              <path d="M200 110 q6 -26 22 -34" stroke="#3d6b35" stroke-width="3" fill="none" class="stem"/>
+              <circle cx="196" cy="118" r="3" fill="#fff" opacity=".6"/>
+            </svg>
+            <p class="wish" id="wish" aria-live="polite"></p>
+          </div>
+          <div class="badge" aria-hidden="true">
             <strong>Dal forno</strong>
             <span>alle 6:30</span>
           </div>
+          <div class="flavors" role="radiogroup" aria-label="Scegli il gusto della torta">
+            <button class="flavor active" data-flavor="frutti" role="radio" aria-checked="true"><i style="--sw:#7a2e3a"></i>Frutti rossi</button>
+            <button class="flavor" data-flavor="cioccolato" role="radio" aria-checked="false"><i style="--sw:#5b3a29"></i>Cioccolato</button>
+            <button class="flavor" data-flavor="pistacchio" role="radio" aria-checked="false"><i style="--sw:#8db05f"></i>Pistacchio</button>
+            <button class="flavor" data-flavor="limone" role="radio" aria-checked="false"><i style="--sw:#f2cf4a"></i>Limone</button>
+          </div>
+          <p class="cake-hint">Scegli un gusto, tocca la torta per gli zuccherini e la candelina per esprimere un desiderio ✨</p>
         </div>
       </div>
     </section>

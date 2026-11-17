@@ -122,6 +122,122 @@
     status.className = "open-now closed";
   }
 
+  // --- Torta interattiva nella prima pagina ---
+  const stage = document.getElementById("cake-stage");
+  if (stage) {
+    const svg = document.getElementById("cake");
+    const body = document.getElementById("cake-body");
+    const sprinkles = document.getElementById("sprinkles");
+    const candle = document.getElementById("candle");
+    const wish = document.getElementById("wish");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const SPRINKLE_COLORS = ["#f39c12", "#e74c3c", "#3498db", "#2ecc71", "#9b59b6", "#ffffff", "#f8c6d0"];
+    const CONFETTI_COLORS = ["#7a2e3a", "#f3c6cf", "#d9a441", "#e74c3c", "#8db05f", "#f2cf4a"];
+    const rand = (a, b) => a + Math.random() * (b - a);
+    const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    // Inclinazione 3D che segue il puntatore
+    if (!reduceMotion) {
+      stage.addEventListener("pointermove", (e) => {
+        if (e.pointerType === "touch") return;
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        svg.style.setProperty("--ry", (x * 18).toFixed(2) + "deg");
+        svg.style.setProperty("--rx", (-y * 14).toFixed(2) + "deg");
+      });
+      stage.addEventListener("pointerleave", () => {
+        svg.style.setProperty("--ry", "0deg");
+        svg.style.setProperty("--rx", "0deg");
+      });
+    }
+
+    // Scelta del gusto
+    const flavors = document.querySelectorAll(".flavor");
+    flavors.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        stage.dataset.flavor = btn.dataset.flavor;
+        flavors.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-checked", String(on));
+        });
+        squish();
+      });
+    });
+
+    function squish() {
+      body.classList.remove("squish");
+      void body.getBBox(); // riavvia l'animazione
+      body.classList.add("squish");
+    }
+
+    // Zuccherini dove si tocca la torta
+    const NS = "http://www.w3.org/2000/svg";
+    body.addEventListener("click", (e) => {
+      const pt = svg.createSVGPoint();
+      pt.x = e.clientX; pt.y = e.clientY;
+      const p = pt.matrixTransform(svg.getScreenCTM().inverse());
+      for (let i = 0; i < 9; i++) {
+        const x = Math.min(305, Math.max(95, p.x + rand(-35, 35)));
+        const y = Math.min(295, Math.max(145, p.y + rand(-22, 22)));
+        if (y < 215 && (x < 125 || x > 275)) continue; // fuori dallo strato alto
+        const s = document.createElementNS(NS, "rect");
+        s.setAttribute("width", "9"); s.setAttribute("height", "3"); s.setAttribute("rx", "1.5");
+        s.setAttribute("fill", pick(SPRINKLE_COLORS));
+        s.setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rand(0, 180).toFixed(0)})`);
+        const g = document.createElementNS(NS, "g");
+        g.setAttribute("class", "sprinkle");
+        g.style.animationDelay = (i * 25) + "ms";
+        g.appendChild(s);
+        sprinkles.appendChild(g);
+      }
+      while (sprinkles.childNodes.length > 160) sprinkles.removeChild(sprinkles.firstChild);
+      squish();
+    });
+
+    // Coriandoli
+    function confetti(count) {
+      if (reduceMotion) return;
+      const r = stage.getBoundingClientRect();
+      const ox = r.width / 2, oy = r.height * 0.16;
+      for (let i = 0; i < count; i++) {
+        const c = document.createElement("span");
+        c.className = "confetti";
+        c.style.left = ox + "px"; c.style.top = oy + "px";
+        c.style.background = pick(CONFETTI_COLORS);
+        const angle = rand(-Math.PI, 0);
+        const dist = rand(80, 220);
+        c.style.setProperty("--dx", (Math.cos(angle) * dist).toFixed(0) + "px");
+        c.style.setProperty("--dy", (Math.sin(angle) * dist * 0.6 + rand(120, 260)).toFixed(0) + "px");
+        c.style.setProperty("--rot", rand(-540, 540).toFixed(0) + "deg");
+        stage.appendChild(c);
+        c.addEventListener("animationend", () => c.remove());
+      }
+    }
+
+    // Candelina: soffia per spegnerla, tocca di nuovo per riaccenderla
+    let wishTimer;
+    const toggleCandle = () => {
+      const out = candle.classList.toggle("out");
+      candle.setAttribute("aria-pressed", String(out));
+      candle.setAttribute("aria-label", out ? "Riaccendi la candelina" : "Spegni la candelina");
+      clearTimeout(wishTimer);
+      if (out) {
+        wish.textContent = pick(["Desiderio espresso! 🎉", "Tanti auguri! 🎂", "Che si avveri! ✨"]);
+        wish.classList.add("show");
+        confetti(40);
+        wishTimer = setTimeout(() => wish.classList.remove("show"), 2600);
+      } else {
+        wish.classList.remove("show");
+      }
+    };
+    candle.addEventListener("click", (e) => { e.stopPropagation(); toggleCandle(); });
+    candle.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleCandle(); }
+    });
+  }
+
   // --- Modulo contatti: apre il client email con il messaggio precompilato ---
   const form = document.getElementById("contact-form");
   const formMsg = document.getElementById("form-msg");
